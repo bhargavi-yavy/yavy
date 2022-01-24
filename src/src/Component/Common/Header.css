@@ -1,0 +1,33 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+.Menu {
+    padding-right: 5%;
+}
+.Menu-One {
+    color: black;
+    display: inline-block;
+    padding: 19px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+.Menu-One:hover {
+    color: black;
+}
+.Header-Icon {
+    color: black;
+    font-size: large;
+    cursor: pointer;
+}
+button.Hover-Button.btn.btn-light {
+    width: 115px;
+    background-color: white;
+    border: none;
+}
+.Header-Name  {
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}

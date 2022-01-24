@@ -6,9 +6,12 @@ import FooterTwo from "../Component/Common/FooterTwo";
 import Enquire from '../Component/HomePage/img/Enquire.png';
 import { Container, Row, Col,Form,Button,Dropdown,InputGroup,
         SplitButton,FormControl,Accordion,OverlayTrigger,Tooltip} from 'react-bootstrap';
+import React,{ useState } from 'react';
 
 export default function Contact() {
+        const [show,setShow]=useState(false)
     return (
+                    
         <div className="Header">
             <Header/>
             <div className="Header-TextContact">
@@ -61,22 +64,34 @@ export default function Contact() {
                     <img alt="" class="Enquire-Img" src={Enquire} />
             <Form><Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Full Name: <span className="red">*</span></Form.Label>
+                <Form.Label>First Name: <span className="Red">*</span></Form.Label>
                     <Form.Control type="email" placeholder="First Name" />
+                    {
+            show?<p id="demo">First Name Invalid</p>:null
+                    }
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label> </Form.Label>
+                <Form.Label>Last Name <span className="Red">*</span></Form.Label>
                     <Form.Control type="password" className="psw-1" placeholder="Last Name" />
+                    {
+            show?<p id="demo">Last Name Invalid</p>:null
+                    }
             </Form.Group></Row>
             <Form.Group className="mb-3" controlId="formGridAddress1">
-                <Form.Label>Company Name:<span className="red">*</span></Form.Label>
+                <Form.Label>Company Name:<span className="Red">*</span></Form.Label>
                     <Form.Control placeholder="" />
+                    {
+            show?<p id="demo">Company Name Invalid</p>:null
+                    }
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGridAddress2">
-                <Form.Label>Email: <span className="red">*</span></Form.Label>
+                <Form.Label>Email: <span className="Red">*</span></Form.Label>
                     <Form.Control placeholder="" />
+                    {
+            show?<p id="demo">Email Invalid</p>:null
+                    }
             </Form.Group> <>
-                <Form.Label>Contact No: <span className="red">*</span></Form.Label>
+                <Form.Label>Contact No: <span className="Red">*</span></Form.Label>
             <InputGroup className="mb-3">
                 <SplitButton variant="outline-secondary" title="+91" id="segmented-button-dropdown-1">
                     <Dropdown.Item href="#">+1</Dropdown.Item>
@@ -87,7 +102,7 @@ export default function Contact() {
             <FormControl aria-label="Text input with dropdown button" />
             </InputGroup></> 
                 <Col md>
-                    <Form.Label>Service Type: <span className="red">*</span></Form.Label>
+                    <Form.Label>Service Type: <span className="Red">*</span></Form.Label>
                     <Form.Select aria-label="Floating label select example">
                         <option>--Select--</option>
                         <option value="1">Inquiry</option>
@@ -99,7 +114,7 @@ export default function Contact() {
                         <Form.Control as="textarea" rows={3} />
                 </Form.Group>
             </Form>
-                <Button className="ContButton" variant="primary" type="submit">Submit</Button>
+                <Button onClick={()=>setShow(!show)} variant="primary">Submit</Button>
             </Form></Col></Row>
             </Container></div>
                 <div className="Content">
@@ -120,6 +135,6 @@ export default function Contact() {
                         </></div></div>
                 <Footer/>
                     <FooterTwo/>
-            </div>          
+            </div>         
     );
   }

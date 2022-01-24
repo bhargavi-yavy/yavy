@@ -1,0 +1,30 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.P-Black {
+    background-color: rgb(76, 76, 77);
+    padding: 1.5%;
+}
+.P-Blue {
+    background-color: #259ba7;
+    padding: 1.5%;
+}
+span.P-HeaderText, .P-Header {
+    color: white;
+    text-align: center;
+}
+.P-TextP {
+    color: white;
+    width: 375px;
+    text-align: center;
+}
+.Icon-Symbol {
+    text-align: center;
+    padding-bottom: 3%;
+}
+.IconS{
+    color: white;
+    width: 35px;
+    height: 9%;
+}

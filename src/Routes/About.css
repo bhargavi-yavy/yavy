@@ -1,0 +1,129 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+.Header-TextAbout {
+    background-color: #259ba7;
+}
+.About-h1 {
+    text-align: center;
+    color: white;
+    padding-top: 3%;
+    margin: 0%;
+    font-weight: bold;
+}
+.About-P  {
+    color: white;
+    text-align: center;
+    padding-bottom: 3%;
+    font-size: large;
+    margin: 0%;
+}
+.White-Box {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-image: url("../img/bg.png");
+}
+.About-White-h2 {
+    font-size: 275%;
+}
+.About-White-P {
+    margin-left: 10%;
+    margin-right: 10%;
+    color: #848484;
+}
+.Progress-Bar {
+    padding-top: 3%;
+    padding-bottom: 2%;
+    background-image: url("../img/Background-Blur.jpg") ;
+}
+.Text-Our-P {
+    margin-left: 5%;
+}
+.Our-Skils {
+    margin-left: 7%;
+    padding-top: 20%;
+}
+.Text-color {
+    color: white;
+    font-weight: bold;
+}
+.Bar {
+    width: 85%;
+}
+.Our-Bar-h2 {
+    color: white;
+    padding-left: 7%;
+    font-weight: bold;
+}
+.Our-Bar-P {
+    color: #848484;
+    padding-left: 7%;
+    text-align: justify;
+    padding-bottom: 9px;
+}
+.About-Centre {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 1.5%;
+    background-image: url("../img/bg.png");
+}
+.About-Centre-P {
+    text-align: start;
+    color: #848484;
+    font-size: 90%;
+    line-height: 175%;
+}
+.About-Centre-Two {
+    padding-top: 7%;
+}
+.About-Centre-Three {
+    padding-top: 3%;
+}
+.Line-Image {
+    float: left;
+}
+.Image-Line {
+    float: right;
+}
+.About-Centre-h4 {
+    font-size: xx-large;
+    padding-bottom: 1.5%;
+}
+.About-Aside-P {
+    padding-top: 5%;
+}
+.About-Number {
+    background-color: #259ba7;
+    padding: .105em .2em .135em;
+    margin: .175em .215em 0 0;
+    font-size: 3.3em;
+    font-weight: 700;
+    line-height: 1;
+    float: left;
+    color: white;
+    border-radius: 5px;
+}
+.Y-Image {
+    padding-top: 20%;
+    width: 85%;
+    margin-left: 15%;
+}
+.About-Three-P {
+    text-align: start;
+    font-size: 95%;
+    color: #848484;
+}
+.About-Aside-h2 {
+    font-size: 150%;
+    font-weight: bold;
+}
+.About-Container-h1 {
+    background-color: #259ba7;
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-weight: bold;
+}

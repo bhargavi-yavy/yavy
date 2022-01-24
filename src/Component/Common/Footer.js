@@ -7,9 +7,11 @@ import Budget from '../HomePage/img/Budget.jpg';
 import Help from '../HomePage/img/Help.jpg';
 import Digital from '../HomePage/img/Digital.jpg';
 import Flyers from '../HomePage/img/Flyers.jpg';
+import React,{ useState } from 'react';
 
 export default function Footer() {
-      return (
+      const [show,setShow]=useState(false)
+      return (    
 
       <div className="Footer">
                   <Container>
@@ -75,20 +77,32 @@ export default function Footer() {
                   <Form>
                         <Row className="mb-3">
                   <Form.Group as={Col}>
-            <Form.Label>Full Name: <span className="Red">*</span></Form.Label>
-                  <Form.Control type="email" placeholder="First Name" />
+            <Form.Label>First Name: <span className="Red">*</span></Form.Label>
+                  <Form.Control type="email" id="FirstName" placeholder="First Name" />
+                  {
+            show?<p id="demo">Name Invalid</p>:null
+                  }
                   </Form.Group>
-                        <Form.Group as={Col} controlId="Input-Top">
-            <Form.Label> </Form.Label>
-                  <Form.Control type="password"  placeholder="Last Name" />
+                        <Form.Group as={Col}>
+            <Form.Label> Last Name: <span className="Red">*</span></Form.Label>
+                  <Form.Control type="password" id="LastName" placeholder="Last Name" />
+                              {
+                        show?<p id="demo">Name Invalid</p>:null
+                              }
                         </Form.Group></Row>
                   <Form.Group className="mb-3">
             <Form.Label>Company Name:<span className="Red">*</span></Form.Label>
-                  <Form.Control placeholder="" />
+                  <Form.Control id="CompanyName" placeholder="" />
+                  {
+            show?<p id="demo">Company Name Invalid</p>:null
+                  }
                   </Form.Group>
             <Form.Group className="mb-3">
                   <Form.Label>Email: <span className="Red">*</span></Form.Label>
-                  <Form.Control placeholder="" />
+                  <Form.Control id="Email" placeholder="" />
+                  { 
+                  show?<p id="demo">Email Address Invalid</p>:null
+                  }                             
             </Form.Group> 
                         <>
             <Form.Label>Contact No: <span className="Red">*</span></Form.Label>
@@ -114,8 +128,8 @@ export default function Footer() {
                         <Form.Control as="textarea" rows={3} />
                   </Form.Group>
             </Form>
-      <Button variant="primary" type="submit">Submit</Button>
-            </Form></Col></Row></Container>
+      <Button variant="primary"  onClick={()=>setShow(!show)} >Submit</Button>
+            </Form></Col></Row></Container>     
 </div>     
       );
 }

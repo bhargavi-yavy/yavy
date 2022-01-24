@@ -67,7 +67,7 @@ export function App() {
                                 <div className="Services">
                         <h2><b> Our Service </b></h2></div>
                             {/* Paragraph Link */}
-                                <Paragraph/>                                                     
+                                <Paragraph />                                                     
                             {/* Why Chooise US */}
                     <div className="Chooise-Us">
                         <Container><Row>

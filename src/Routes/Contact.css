@@ -1,0 +1,68 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: sans-serif;
+}
+.Contact-h1 {
+    text-align: center;
+    background-color: #259ba7;
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin: 0%;
+    font-weight: bold;
+}
+.Aside-Centre {
+    padding-bottom: 4%;
+    padding-top: 4%;
+    background-image: url("../img/bg.png");
+}
+.ContButton {
+    margin-bottom: 3%;
+}
+.Content {
+    background-color: #259ba7;
+    padding: 5% 5%;
+}
+.Content-h1{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.Content-h3  {
+    color: white;
+    text-align: center;
+}
+button.Contact-Right.btn.btn-secondary {
+    background-color: white;
+    color: black;
+    padding-bottom: 10px;
+    border: none;
+}
+.Contact-Button {
+    text-align: center;
+}
+.Font-Color {
+    color: #259ba7;
+}
+.Font-Color-Span {
+    color: black;
+}
+.Close-Forms {
+    float: left;
+}
+img.Enquire-Img {
+    width: 150px;
+    margin-left: 40%;
+    cursor: pointer;
+}
+.Forms {
+   margin-left: 5%;
+}
+.Red {
+    color: red;
+}
+#demo {
+    color: red;
+    padding-left: 5px;
+}
