@@ -1,20 +1,50 @@
 import { Container, Row, Col} from "react-bootstrap";
+import axios from 'axios';
+import React,{useState} from 'react'
+import "../HomePage/ServicesFour.css";
+         //Images
 import Graphics from './img/Graphics.jpg';
 import Print from './img/Print.jpg';
 import Based from './img/Based.jpg';
 import UI from './img/UI.jpg';
-import "../HomePage/ServicesFour.css";
  
 export default function ServicesFour() {
-   return(
 
+   const [data,setData] = useState([
+                     {"id":"1",
+               "title":"TITLE 1",
+               "subTitle":"SUB TITLE 1",
+               "description":"Description1...",
+               "imagePath":"./img1.jpg"},
+                     {"id":"2",
+               "title":"",
+               "subTitle":"",
+               "description":"",
+               "imagePath":""},
+                     {"id":"3",
+               "title":"",
+               "subTitle":"",
+               "description":"",
+               "imagePath":""},
+                  {"id":"4",
+               "title":"",
+               "subTitle":"",
+               "description":"",
+               "imagePath":""}
+]);
+   axios.get("http://localhost:5000/products").then
+      (response => setData(response.data)
+   )
+   return(
+     
                //Section - 1 Pgh and Image
           <div className="Container-One">
                      <Container>
+   
               <Row className="Row-Style"><Col>       
-      <h2 className="Row-Style-h2">Graphic Design</h2>     
-      <p><strong className="Row-Style-Strong"> We Understand "<span className="Row-Style-Span">A picture is worth a thousand words</span>"</strong></p>
-      <p className="Row-Style-P">In today's fast life people rarely have the time to read something. The best way to convey something fast is by Graphics. We at Abhishek Graphics understand your idea and turn it into a picture that your customer can relate to.</p></Col>
+      <h2 className="Row-Style-h2">{data.map(value => <li key={value.id}>{value.title}</li>)}</h2>     
+      <p><strong className="Row-Style-Strong"> {data.map(value => <li key={value.id}>{value.subTitle}</li>)}</strong></p>
+      <p className="Row-Style-P">{data.map(value => <li key={value.id}>{value.description}</li>)}</p></Col>
                      <Col>                       
       <img alt="Placeholder" className="Graphics" src={Graphics} />
                        </Col></Row>
@@ -24,7 +54,7 @@ export default function ServicesFour() {
                <Row className="Row-Style"><Col>
       <img alt="Placeholder" className="Graphics" src={Print} /></Col>
                      <Col>
-      <h2 className="Row-Style-h2">Print Media and Communication</h2>
+      <h2 className="Row-Style-h2">{data.map(item => <li key={item.id}>{item.title}</li>)}</h2>
       <p><strong className="Row-Style-Strong">We Believe “<span className="Row-Style-Span">Physical Presence is also needed</span></strong>"</p>
       <p className="Row-Style-P">We all agree that computer has not made paper completely useless, While Web Site is your online brochure you need to have an offline presence too. This includes Brochures, Banners, Cards, Newspaper Ads, Magazine Ads and much more. Contact the best Graphic Design presence visible. </p>
                         </Col></Row>
