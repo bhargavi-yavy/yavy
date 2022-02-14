@@ -1,12 +1,25 @@
 import '../Routes/About.css';
-import Header from "../Component/Common/Header";
+import axios from 'axios';
+import React,{useState} from 'react';
+import Circle from '../img/Circle.png';
 import {Container, Row, Col,ProgressBar} from "react-bootstrap";
+            //Components
+import Header from "../Component/Common/Header";
 import Footer from "../Component/Common/Footer";
 import FooterTwo from "../Component/Common/FooterTwo";
-import Circle from '../img/Circle.png';
 
 export default function About() {
-    return (
+    const [data,setData] = useState([]);
+
+    axios.get("http://localhost:5000/data").then
+        (response => setData(response.data)
+            )
+    const [content,setContent] = useState([]);
+
+    axios.get("http://localhost:5000/content").then
+        (response => setContent(response.content)
+            )
+return (
             <div className="Header">
         <Header/>
                         <div className="Header-TextAbout">
@@ -17,29 +30,27 @@ export default function About() {
                         <p className="About-White-P">22nd June, 1990 saw the inception of a dynamic enterprise in the name of Abhishek Design Studio. With a bare minimum of resources and infrastructure it managed to see work beyond its potential and saw consistent work premise for its identity. There has always been a concentrated effort on coming up with productive creative output leveled with an insightful overview on brand excellence.</p>
                                 </div>
         <div className="Progress-Bar">
-                <Container fluid>           
-            <Row><Col className="Text-Our-P">
-                    <div className="Our-History">
-                        <h2 className="Our-Bar-h2">Our History</h2>
-                        <p  className="Our-Bar-P">We were established in 1990 as a small graphic designing company with the aim of being the best in Vadodara. With the same stride we kept going forward to reach where we are today. We take pride in giving our clients the very best possible solution for their Designing needs and provide great service that fits any budget. We offer a wide range of solutions for nearly any type of business from full brand development to a monthly graphic design and big hoarding design contract.</p></div>
-                    <div className="Our-Present">
-                        <h2 className="Our-Bar-h2">Our Present</h2>
-                        <p  className="Our-Bar-P">We not only reached our aim of being the best the Vadodara but also achieved the target of being the best in Gujarat. On our journey we picked up the idea of MAKE IN INDIA and made it our motto. Today we are a part of Make In India campaign and most of our staff and product is produced in India by hardworking Indians. In the year of 2003 we thought to expand our business so we started to work as web developer and some of the supporting service. But our roots still remained in the Graphic Designing business. From 2003 to 2007 mainly we focused upon Indian market and worked with outer state.</p></div>
-                    <div className="Our-Future">
-                        <h2 className="Our-Bar-h2">Our Future</h2>
-                        <p  className="Our-Bar-P">Future is really unpredictable. With the constantly changing demands of the customers one thing is clear that Graphic Designing will play a key role in the coming years. We obviously wish to be the best in the world but still not forget our core roots and move forward with MAKE IN INDIA campaign and with products and services made in India serve the whole world. We invite you to be a part of our future.</p></div>
-                </Col>
+                <Container fluid><Row>
+                    <Col className="Text-Our-P">
+        {data.map(value => { 
+                return (
+                <div className="Our-History">
+                        <h2 className="Our-Bar-h2">{value.title}</h2>
+                        <p className="Our-Bar-P">{value.description}</p>
+                    </div> 
+                    ) } 
+                )} </Col>
                             <Col>
-                        <div className="Our-Skils"> 
-                <span className="Text-color">GRAPHIC DESIGN</span><ProgressBar now={99} className="Bar" /><br />
-                <span className="Text-color">PRINT MEDIA AND COMMUNICATION</span><ProgressBar now={97} className="Bar" /><br />
-                <span className="Text-color">WEB BASED GRAPHIC DESIGN</span><ProgressBar now={95} className="Bar" /><br />
-                <span className="Text-color">BRANDING</span><ProgressBar now={97} className="Bar" /><br />
-                <span className="Text-color">LOGO DESIGN</span><ProgressBar now={92} className="Bar" /><br />
-                <span className="Text-color">UI-UX DESIGN</span><ProgressBar now={90} className="Bar" /><br />
-                <span className="Text-color">PHARMA BRANDING</span><ProgressBar now={90} className="Bar" />
-                        </div></Col></Row>
-                            </Container></div>                            
+                <div className="Our-Skils"> 
+    <span className="Text-color">GRAPHIC DESIGN</span><ProgressBar now={99} className="Bar" /><br />
+    <span className="Text-color">PRINT MEDIA AND COMMUNICATION</span><ProgressBar now={97} className="Bar" /><br />
+    <span className="Text-color">WEB BASED GRAPHIC DESIGN</span><ProgressBar now={95} className="Bar" /><br />
+    <span className="Text-color">BRANDING</span><ProgressBar now={97} className="Bar" /><br />
+    <span className="Text-color">LOGO DESIGN</span><ProgressBar now={92} className="Bar" /><br />
+    <span className="Text-color">UI-UX DESIGN</span><ProgressBar now={90} className="Bar" /><br />
+    <span className="Text-color">PHARMA BRANDING</span><ProgressBar now={90} className="Bar" />
+                </div></Col></Row>                              
+                </Container></div>                            
         <div className="About-Centre">
             <h2 className="About-White-h2">Why to choose US ?</h2>
             <p className="About-White-P">What separates Abhishek Design Studios from other Designing Firms is our Great customer services and response time (we wont make you wait for weeks to hear back from us). We have a quick turn time and an honest and no nonsense approach to all of our projects.</p><br />
@@ -63,12 +74,13 @@ export default function About() {
                         <hr className="About-Line" /> 
                     <div className="About-Centre-Three">
                 <h4 className="About-Centre-h4">How we work</h4>
-            <Container><Row>
-                    <Col className="About-Three-P"><span className="About-Number">1</span>Abhishek’s innovative marketing campaigns <br />are tailored to suit each customer’s unique <br />requirements, with the same market-leading <br />service for every job, big or small.</Col>
-                    <Col  className="About-Three-P"><span className="About-Number">2</span>Our work varies from traditional print display <br />to multi-layered, co-ordinated campaigns<br /> comprising word-of-mouth community engagement  and themed promotions.</Col>
-                    <Col  className="About-Three-P"><span className="About-Number">3</span>Here is a small selection of the innovative,<br /> high-profile projects we have delivered for our clients to give an idea of what we can do. But don’t forget – every job is different and your campaign will be created just for you!</Col>
-                        </Row>
-                </Container>
+                        <Container><Row>
+                    {content.map(value => {
+                        return (
+    <Col className="About-Three-P"><span className="About-Number">{value.number}</span>{value.paragraph}</Col>
+                                ) } 
+                            )} 
+                        </Row></Container>
                                     <div className="About-Aside-P">
             <h2 className="About-Aside-h2">We work passionately to provide you with best work possible</h2>
             <p className="About-White-P">What separates Abhishek Design Studios from other Designing Firms is our Great customer services and response time (we wont make you wait for weeks to hear back from us). We have a quick turn time and an honest and no nonsense approach to all of our projects.</p><br />
@@ -80,4 +92,4 @@ export default function About() {
                     <FooterTwo/>
         </div>
     );
-  }
+}

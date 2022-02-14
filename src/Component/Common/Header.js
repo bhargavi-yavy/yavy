@@ -8,7 +8,7 @@ export default function Header() {
     const [show,setShow]=useState(false)
   return (
 
-    <header className="navbar">
+    <header className="navbar"> 
           <div className="logo">
             <img className="img-logo" src={logo} alt="" /></div>
                 <div className="Menu">

@@ -1,12 +1,12 @@
 import { Container, Row, Col, Button} from "react-bootstrap";
-import create from './img/create.jpg';
-import Dubai from './img/Dubai.jpg';
-import Origamil from './img/Origamil.png';
-import Palavi from './img/Palavi.jpg';
-import Sud from './img/Sud.jpg';
-import product from './img/product.jpg';
-import Education from './img/Education.jpg';
-import Greenovat from './img/Greenovat.jpg';
+import create from '../../img/create.jpg';
+import Dubai from '../../img/Dubai.jpg';
+import Origamil from '../../img/Origamil.png';
+import Palavi from '../../img/Palavi.jpg';
+import Sud from '../../img/Sud.jpg';
+import product from '../../img/product.jpg';
+import Education from '../../img/Education.jpg';
+import Greenovat from '../../img/Greenovat.jpg';
 import "../HomePage/ImageLinks.css"
 
 export default function ImageLinks() {

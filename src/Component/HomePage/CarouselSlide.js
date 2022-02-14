@@ -1,7 +1,7 @@
 import { Carousel } from 'react-bootstrap';
-import Technology from './img/Technology.jpg';
-import Trains from './img/Trains.jpg';
-import Glob from './img/Glob.jpg';
+import Technology from '../../img/Technology.jpg';
+import Trains from '../../img/Trains.jpg';
+import Glob from '../../img/Glob.jpg';
 
 export default function CarouselSlide() {
   return (

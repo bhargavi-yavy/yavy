@@ -5,7 +5,7 @@
 .Footer {
   padding-top: 5%;
   padding-bottom: 5%;
-  background-image: url("../HomePage/img/bg.png");
+  background-image: url("../../img/bg.png");
   border-bottom: solid 1px #dedada;
 }
 .Quick-Side {
@@ -64,7 +64,7 @@ button.Bottom-One.btn.btn-light:hover {
 .Recent-Side {
   text-decoration: none;
   border-bottom: 1px solid #dedada;
-  padding-top: 10px;
+  padding-top: 19px;
   display: inline-block;
 }
 .Recent-Side:hover {

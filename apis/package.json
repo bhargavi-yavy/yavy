@@ -5,12 +5,14 @@
   "main": "Services.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-          "start" :"node App.js",
-          "server" : "nodemon App.js"
+    "start": "node App.js",
+    "server": "nodemon App.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
     "express": "^4.17.2"
   },
   "devDependencies": {

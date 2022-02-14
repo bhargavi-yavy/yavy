@@ -2,7 +2,7 @@ import './App.css';
 import "./Component/Common/Header.css";
 import "./Component/Common/Footer.css";
 import "./Component/Common/FooterTwo.css";
-import { Container, Row, Col, Button} from "react-bootstrap";
+import {Container,Row,Col,Button} from "react-bootstrap";
               //Common Directory
 import Header from "./Component/Common/Header";
 import Footer from "./Component/Common/Footer";
@@ -89,9 +89,9 @@ export function App() {
         <p className="Clients-P">Our Happy Domestic Clients from Vadodara, Mumbai, Surat, Rajkot, Bangalore, Pune, Ahmedabad, Kolkata, Chennai, Delhi, Goa, Hyderabad, Pune Our Happy Abroad Clients from USA, UK, Australia, Newzealand, Dubai, China, Singapore, Thailand, Greece, Canada and Korea</p>
                               </Container></div>    
                                     {/* Footer's Link */}  
-                                            <Footer/>
-                                         <FooterTwo/>
-    </div>
-  );
+                                        <Footer/>
+                                <FooterTwo/>
+          </div>
+     );
 }
 export default App;

@@ -2,11 +2,11 @@ import { Container, Row, Col, Button, Form, Dropdown,
          FormControl,InputGroup, SplitButton} from "react-bootstrap";
 import {IoCaretForwardOutline, IoChevronForwardOutline, IoMenu} from "react-icons/io5";
       //images
-import Google from '../HomePage/img/Google.png';
-import Budget from '../HomePage/img/Budget.jpg';
-import Help from '../HomePage/img/Help.jpg';
-import Digital from '../HomePage/img/Digital.jpg';
-import Flyers from '../HomePage/img/Flyers.jpg';
+import Google from '../../img/Google.png';
+import Budget from '../../img/Budget.jpg';
+import Help from '../../img/Help.jpg';
+import Digital from '../../img/Digital.jpg';
+import Flyers from '../../img/Flyers.jpg';
 import React,{ useState } from 'react';
 
 export default function Footer() {
@@ -62,13 +62,13 @@ export default function Footer() {
                         <ul className="Recent-Side-One">
             <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Budget} />
             <span class="Recent-Span">Budget Social Media Post Design in India</span></a></li>
-            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Flyers}  />
+            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Digital}  />
             <span class="Recent-Span">Flyers Design Company India</span></a></li>
             <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Help}  />
             <span class="Recent-Span">Graphic Design Agency UK</span></a></li>
-            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Help}  />
+            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Flyers}  />
             <span class="Recent-Span">Help your Product Stand out with Eye Catchy Product Packaging</span></a></li>
-            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Digital}  />
+            <li><a className="Recent-Side" href="#Section"><img className="Awsome" alt="" src={Help}  />
             <span class="Recent-Span">Digital Brochure Makes Your Business Digital</span></a></li>
                         </ul></Col>
                                     {/* Section-4 */}
