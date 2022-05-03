@@ -1,4 +1,6 @@
-import { Container, Row, Col, Button, Form, Dropdown,
+import Axios from 'axios';
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Button, Form,
          FormControl,InputGroup, SplitButton} from "react-bootstrap";
 import {IoCaretForwardOutline, IoChevronForwardOutline, IoMenu} from "react-icons/io5";
       //images
@@ -11,11 +13,30 @@ import React,{ useState } from 'react';
 
 export default function Footer() {
       const [show,setShow]=useState(false)
-      return (    
 
-      <div className="Footer">
-                  <Container>
-            <Row><Col className="Footer-Content"> 
+      const [firstname,setFirstname] = useState("");
+      const [lastname,setLastname] = useState("");
+      const [companyname,setCompanyname] = useState("");
+      const [email,setEmail] = useState("");
+      const [contactno,setContactno] = useState("");
+      const [servicetype,setServicetype] = useState("");
+
+      const register = () => {
+            Axios.post("http://localhost:5000/register", {
+              firstname: firstname,
+              lastname: lastname,
+              companyname: companyname,
+              email: email,
+              contactno: contactno,
+              servicetype: servicetype,
+      }).then((response) => {
+                console.log(response);
+             });
+           };
+      return (    
+                        <div className="Footer">
+                              <Container>
+                        <Row><Col className="Footer-Content"> 
                               {/* Section-1 */}      
                   <h4><IoMenu className="Foot-Icon-Color" /><span>Quick Links</span></h4>         
                         <ul className="Quick-Side">
@@ -78,49 +99,42 @@ export default function Footer() {
                         <Row className="mb-3">
                   <Form.Group as={Col}>
             <Form.Label>First Name: <span className="Red">*</span></Form.Label>
-                  <Form.Control type="email" id="FirstName" placeholder="First Name" />
-                  {
-            show?<p id="demo">Name Invalid</p>:null
-                  }
+                  <Form.Control type="email" id="FirstName" placeholder="First Name" onChange={(e) =>{setFirstname(e.target.value);}} />
+                  {show?<p id="demo">Name Invalid</p>:null}
+                  
                   </Form.Group>
                         <Form.Group as={Col}>
             <Form.Label> Last Name: <span className="Red">*</span></Form.Label>
-                  <Form.Control type="password" id="LastName" placeholder="Last Name" />
-                              {
-                        show?<p id="demo">Name Invalid</p>:null
-                              }
+                  <Form.Control type="text" id="LastName" placeholder="Last Name" onChange={(e) => {setLastname(e.target.value);}} />
+                  {show?<p id="demo">Name Invalid</p>:null}
                         </Form.Group></Row>
                   <Form.Group className="mb-3">
             <Form.Label>Company Name:<span className="Red">*</span></Form.Label>
-                  <Form.Control id="CompanyName" placeholder="" />
-                  {
-            show?<p id="demo">Company Name Invalid</p>:null
-                  }
+                  <Form.Control id="CompanyName" placeholder="" onChange={(e) =>{setCompanyname(e.target.value);}} />
+                  {show?<p id="demo">Company Name Invalid</p>:null}
                   </Form.Group>
             <Form.Group className="mb-3">
                   <Form.Label>Email: <span className="Red">*</span></Form.Label>
-                  <Form.Control id="Email" placeholder="" />
-                  { 
-                  show?<p id="demo">Email Address Invalid</p>:null
-                  }                             
+                  <Form.Control id="Email" placeholder="" onChange={(e) =>{setEmail (e.target.value);}} />
+                  {show?<p id="demo">Email Address Invalid</p>:null}                             
             </Form.Group> 
                         <>
             <Form.Label>Contact No: <span className="Red">*</span></Form.Label>
                         <InputGroup className="mb-3">
                   <SplitButton variant="outline-secondary" title="+91">
-                        <Dropdown.Item href="#">+1</Dropdown.Item>
+                        {/*<Dropdown.Item href="#">+1</Dropdown.Item>
                         <Dropdown.Item href="#">+2</Dropdown.Item>
                         <Dropdown.Item href="#">+3</Dropdown.Item>
-                        <Dropdown.Item href="#">+4</Dropdown.Item>
+                        <Dropdown.Item href="#">+4</Dropdown.Item> */}
                   </SplitButton>
-            <FormControl aria-label="Text input with dropdown button" />
+            <FormControl aria-label="Text input with dropdown button"  onChange={(e)=>{setContactno(e.target.value);}}/>
                   </InputGroup>
                         </> 
             <Col md>
                   <Form.Label>Service Type: <span className="Red">*</span></Form.Label>
                   <Form.Select aria-label="Floating label select example">
             <option>--Select--</option>
-            <option value="1">Inquiry</option>
+            <option value="1" onChange={(e)=>{setServicetype(e.target.value);}}>Inquiry</option>
                   </Form.Select></Col>
             <Form>
                   <Form.Group className="mb-3">
@@ -128,7 +142,7 @@ export default function Footer() {
                         <Form.Control as="textarea" rows={3} />
                   </Form.Group>
             </Form>
-      <Button variant="primary"  onClick={()=>setShow(!show)} >Submit</Button>
+      <Link className="Menu-One" to="/success"><Button variant="primary" onClick={register}>Submit</Button></Link>
             </Form></Col></Row></Container>     
 </div>     
       );

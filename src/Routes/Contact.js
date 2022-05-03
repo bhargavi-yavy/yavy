@@ -1,7 +1,8 @@
 import axios from 'axios';
+import {Link} from "react-router-dom";
 import '../Routes/Contact.css';
 import Iframe from 'react-iframe';
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import Enquire from '../img/Enquire.png';
 import { Container, Row, Col,Form,Button,Dropdown,InputGroup,
         SplitButton,FormControl,Accordion,OverlayTrigger,Tooltip} from 'react-bootstrap';
@@ -12,11 +13,37 @@ import FooterTwo from '../Component/Common/FooterTwo.js';
 
 export default function Contact() {
         const [show,setShow]=useState(false)
-        const [animation,setAnimation] = useState([]);
 
+        const [firstname,setFirstname] = useState("");
+        const [lastname,setLastname] = useState("");
+        const [companyname,setCompanyname] = useState("");
+        const [email,setEmail] = useState("");
+        const [contactno,setContactno] = useState("");
+        const [servicetype,setServicetype] = useState("");
+        
+
+        const [animation,setAnimation] = useState([]);
+            useEffect(() => {   
 axios.get("http://localhost:5000/animation").then
-(response => setAnimation(response.animation)
-        )
+(response => {
+    const animation=response.data;
+    setAnimation(animation)
+    });
+ },[]);
+
+                //Forms
+        const register = () =>{
+axios.post("http://localhost:5000/register",{
+    firstname:firstname,
+    lastname:lastname,
+    companyname:companyname,
+    email:email,
+    contactno: contactno,
+    servicetype: servicetype
+    }).then((response)=>{
+        console.log(response);
+    });
+        }
     return (               
         <div className="Header">
             <Header/>
@@ -27,7 +54,7 @@ axios.get("http://localhost:5000/animation").then
         <div className="Aside-Centre">
                          <Container><Row>      
                     <Col className="Close-Forms">
-            {animation.map(value => { 
+            {animation?.map(value => { 
                 return ( 
                     <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
@@ -46,34 +73,26 @@ axios.get("http://localhost:5000/animation").then
             <Form><Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>First Name: <span className="Red">*</span></Form.Label>
-                    <Form.Control type="email" placeholder="First Name" />
-                    {
-            show?<p id="demo">First Name Invalid</p>:null
-                    }
+                    <Form.Control type="text" placeholder="First Name" onChange={(e)=>{setFirstname(e.target.value);}} />
+                    {show?<p id="demo">First Name Invalid</p>:null}
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label>Last Name <span className="Red">*</span></Form.Label>
-                    <Form.Control type="password" className="psw-1" placeholder="Last Name" />
-                    {
-            show?<p id="demo">Last Name Invalid</p>:null
-                    }
+                    <Form.Control type="text" className="psw-1" placeholder="Last Name" onChange={(e)=>{setLastname(e.target.value);}} />
+                    {show?<p id="demo">Last Name Invalid</p>:null}
             </Form.Group></Row>
             <Form.Group className="mb-3" controlId="formGridAddress1">
                 <Form.Label>Company Name:<span className="Red">*</span></Form.Label>
-                    <Form.Control placeholder="" />
-                    {
-            show?<p id="demo">Company Name Invalid</p>:null
-                    }
+                    <Form.Control placeholder="" onChange={(e)=>{setCompanyname(e.target.value);}} />
+                    {show?<p id="demo">Company Name Invalid</p>:null}
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGridAddress2">
                 <Form.Label>Email: <span className="Red">*</span></Form.Label>
-                    <Form.Control placeholder="" />
-                    {
-            show?<p id="demo">Email Invalid</p>:null
-                    }
+                    <Form.Control placeholder="" onChange={(e) =>{setEmail(e.target.value);}}/>
+                    {show?<p id="demo">Email Invalid</p>:null}
             </Form.Group> <>
                 <Form.Label>Contact No: <span className="Red">*</span></Form.Label>
-            <InputGroup className="mb-3">
+            <InputGroup className="mb-3"  onChange={(e)=>{setContactno(e.target.value);}}>
                 <SplitButton variant="outline-secondary" title="+91" id="segmented-button-dropdown-1">
                     <Dropdown.Item href="#">+1</Dropdown.Item>
                     <Dropdown.Item href="#">+2</Dropdown.Item>
@@ -86,7 +105,7 @@ axios.get("http://localhost:5000/animation").then
                     <Form.Label>Service Type: <span className="Red">*</span></Form.Label>
                     <Form.Select aria-label="Floating label select example">
                         <option>--Select--</option>
-                        <option value="1">Inquiry</option>
+                        <option value="1"  onChange={(e)=>{setServicetype(e.target.value);}}>Inquiry</option>
             </Form.Select>
                 </Col>
             <Form>
@@ -95,7 +114,7 @@ axios.get("http://localhost:5000/animation").then
                         <Form.Control as="textarea" rows={3} />
                 </Form.Group>
             </Form>
-                <Button onClick={()=>setShow(!show)} variant="primary">Submit</Button>
+    <Link className="Menu-One" to="/success"><Button onClick={register} variant="primary">Submit</Button></Link>
             </Form></Col>             
             </Row>
             </Container></div>

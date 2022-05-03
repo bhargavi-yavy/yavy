@@ -13,12 +13,14 @@ import Dubai from "../img/Dubai.jpg";
 import Desposible from "../img/Desposible.jpg";
 
 export default function OurWork () {
-        const [services,setServices] = useState ([]);
+        const [services,setServices] = useState ([
+                
+        ]);
                 useEffect(() => {
-axios.get('https://localhost:5000/services')
+axios.get('http://localhost:5000/services')
         .then((res) => {
                 const services = res.data;
-               setServices(services);
+               setServices(services)
                 });
 },[]);  
     return (

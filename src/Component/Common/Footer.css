@@ -84,3 +84,16 @@ button.Bottom-One.btn.btn-light:hover {
 .Red {
   color: red;
 }
+
+@media screen and (max-width:760px) {
+  .Footer-Content {
+    
+  }
+  .Content-One {
+    
+  }
+  .Footer {
+    width: 475%;
+    padding-left: 19%;
+  }
+}

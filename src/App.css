@@ -115,3 +115,27 @@ button.Button-Two.btn.btn-light {
   color: white;
   background-color: #272727;
 }
+
+@media screen and (max-width :780px) {
+  .Text-HeadLine {
+    font-size:325%;
+    font-weight: bold;
+    font-family:initial;
+  }
+  .HeaderHome-h3 {
+    font-size: 275%;
+  }
+  .HeaderHome-h4 {
+    font-size: 200%;
+  }
+  .HeaderHome-h5 {
+    font-size: x-large;
+  }
+  .Box-h3 {
+    font-size: 245%;
+  }
+  .Box-P {
+    line-height: 275%;
+    font-size: 99%;
+  }
+}

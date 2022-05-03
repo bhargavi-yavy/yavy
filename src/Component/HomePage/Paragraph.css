@@ -4,20 +4,20 @@
 }
 .P-Black {
     background-color: rgb(76, 76, 77);
-    padding: 1.5%;
-}
-.P-Blue {
-    background-color: #259ba7;
-    padding: 1.5%;
+    padding: 1%;
 }
 span.P-HeaderText, .P-Header {
     color: white;
     text-align: center;
+    font-size: larger;
 }
 .P-TextP {
     color: white;
     width: 375px;
+    line-height: 150%;
     text-align: center;
+    padding-left: 9%;
+    font-size: medium;
 }
 .Icon-Symbol {
     text-align: center;
@@ -27,4 +27,13 @@ span.P-HeaderText, .P-Header {
     color: white;
     width: 35px;
     height: 9%;
+}
+.P-Black:nth-child(2) {
+    background: #259ba7;
+}
+.P-Black:nth-child(4) {
+    background: #259ba7;
+}
+.P-Black:nth-child(6) {
+    background: #259ba7;
 }

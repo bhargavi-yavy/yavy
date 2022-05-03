@@ -17,3 +17,9 @@ img.x-img.x-img-none.lazyloaded, img{
 button.Button-ImageLinks.btn.btn-info {
     width: 342px;
 }
+
+@media screen and (max-width:780px) {
+.Img-Link {
+    padding-left: 9%;
+    }
+}

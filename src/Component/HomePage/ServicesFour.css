@@ -11,7 +11,7 @@
 .Row-Style-h2{
     color: #259ba7;
     letter-spacing: -0.017em;
-    font-size: xx-large;
+    font-size: x-large;
     margin-top: 3%;
 }
 .Row-Style-Strong{
@@ -22,8 +22,21 @@
 }
 .Row-Style-P {
     text-align: justify;
-    font-size: larger;
+    font-size: medium;
 }
 .Graphics {
     margin-left: 20%;
+}
+
+@media screen and (max-width: 780px) {
+    .Row-Style {
+        width: 175%;
+        padding-left: 9%;
+        font-weight: bold;
+    }
+    .Row-Style-h2 {
+        color:#259ba7;
+        font-size: x-large;
+        font-weight: bold;
+    }
 }

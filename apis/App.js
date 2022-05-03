@@ -1,20 +1,84 @@
 const express = require('express');
+const mysql = require('mysql');
+const bodyParserv = require('body-parser');
+const query = require ('query');
+const cors = require('cors');
 
-    const app=express();    
+const app=express();
+
+app.use(cors());
+
+app.use (bodyParserv.json());
+
     const PORT= 5000
-    const cors=require('cors');
-    app.use(cors());
+    
+    var db = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Mani@2719",
+        database: "world"
+      });
+      
+      db.connect(function(err) {
+        if (!err){
+        console.log("Connected Data Base!");
+            }
+         else 
+            {
+          console.log("Data Base Not Connected");
+            }
+      });
 
-app.use(express.json());
+app.post('/register', async (req,res) => {
+    try {
+        console.log(req.body)
+    let firstname = req.body.firstname;
+    let lastname = req.body.lastname;
+    let companyname = req.body.companyname;
+    let email = req.body.email;
+    let contactno = req.body.contactno;
+    let servicetype = req.body.servicetype;
+
+    let register = await form(
+        firstname,
+        lastname,
+        companyname,
+        email,
+        contactno,
+        servicetype
+      );
+      res.status(200).send(register);
+    }
+    catch (error) {
+        res.status(400).send(error);
+}
+});
+
+form=(firstname,lastname,companyname,email,contactno,servicetype) => {
+    return new Promise((resolve,reject)=>{
+        var sql =  "INSERT INTO form (firstname,lastname,companyname,email,contactno,servicetype) VALUES (?,?,?,?,?,?)";
+    db.query(sql,[firstname,lastname,companyname,email,contactno,servicetype],
+            (err,result) => {
+                if (err) {
+                    console.log(err)
+                    return reject({ message: "unexpected error" });
+                }
+                else {
+                    return resolve(result);
+                }
+            })
+        
+          });
+        }
+
                         //Home_Screen and Section-1 in products
-app.get("/products", (req,res)=> {      
-   
+app.get("/products", (req,res)=> {        
         const products = [
                 {
                 title: "Graphic Design",
                 subTitle: "We Understand A picture is worth a thousand words",
-                description: "In today’s fast life people rarely have the time to read something. The best way to convey something fast is by Graphics. We at Abhishek Graphics understand your idea and turn it into a picture that your customer can relate to.",
-                imagePath: "./img/Graphics.jpg"
+                description: "In today’s fast life people rarely have the batter some system time to read the storys something. The best way to convey something fast is by Graphics. We at Abhishek Graphics understand your idea and turn it into a picture that your customer can relate to.",
+                imagePath: "../img/Graphics.jpg"
                 },
                 {
                 title: "Print Media and Communication",
@@ -25,43 +89,56 @@ app.get("/products", (req,res)=> {
                 {
                 title: "Web Based Graphic Design",
                 subTitle: "We Believe That Good Can Be Made Better",
-                description: "It is possible that you already have your website and ad campaigns running. So what can we do for you in that case? We can bring your designs to the next level. Maybe you want some new images and theme customization to beautify your online presence or banners or page graphics. Let us create what you have in mind and bring your vision into reality. Our highly skilled and high on tea design team will create something better than you have imagined.",
+                description: "It is possible that you already have your website and Backend Application ad campaigns running. So what can we do for you in that case? We can bring your designs to the next level. Maybe you want some new images and theme customization to beautify your online presence or banners or page graphics. Let us create what you have in mind and bring your vision into reality. Our highly skilled and high on tea design team will create something better than you have imagined.",
                 imagePath: "./img/Based.jpg"
                 },
                 {
                 title: "UI /UX Design",
                 subTitle: "We cherish the idea If you can think about it, there is an App for it.”",
-                description: "We at Abhishek Graphics have taken a new step towards UI-UX designing. We combine art and technology to give you a seamless user experience. So if you want your business to have an App, look no further we can design it for you.",
+                description: "We at Abhishek Graphics have taken a new step towards UI-UX designing. We combine an advertising  Design Studios can design art and technology to give you a seamless user experience. So if you want your business to have an App, look no further we can design it for you.",
                 imagePath: "./img/UI.jpg"
                 }
         ]
     res.status(200).send(products);
         })
                         //Home_Screen and Section-2 in text
-app.get("/text", (req,res)=> {      
-   
+app.get("/text", (req,res)=> {         
             const text = [
                 {
                 icon:"1",
                 header:"Advertisement Design Service",
-                paragraph:"If you currently have or want to start an advertising campaign Abhishek Design Studios can design, customize and execute your ads/ad campaigns for you. We can design and implement your Digital Media Ads, Print Media Ads, Magazine Ads, Newspaper Ads and more. We can also provide you with most economically priced printing for your print media ads! Our ad design will let you stand out amongst your competitors as we use the most creative ideas. We use only the latest versions of software of Adobe Photoshop, In Design, Adobe Professional and Illustrator to create your ads."
+                paragraph:"If you currently have or want to an advertising Abhishek Design Studios can design, customize and execute your ads/ad campaigns for you. We can design and implement your Digital Media Ads, Print Media Ads, Magazine Ads, Newspaper Ads and more. We can also provide you with most economically priced printing for your print media ads! Our ad design will let you stand out amongst your competitors as we use the most creative ideas. We use only the latest versions of software of Adobe Photoshop, In Design, Adobe Professional and Illustrator to create your ads."
                 },
                 {
                 icon:"1",
                 header:"Creative Logo Design Agency",
-                paragraph:"Give your business the right first impression because you only get one. Logo is your corporate identity. If you're a startup or an enterprise, Logo is a key element. We offer customized services for company logo design that suites Startups, Mid-size companies and Enterprises. If you're not happy with your current logo design and it was done when you started your business and now that you're established you want the logo speak about your success, please get it touch for redefining your logo. If you're looking for logo design in India, USA, Canada. Abhishek Studios is your answer"
+                paragraph:"Give your business the right first because you only get one. Logo is your corporate identity. If you're a startup or an enterprise, Logo is a key element. We offer customized services for company logo design that suites Startups, Mid-size companies and Enterprises. If you're not happy with your current logo design and it was done when you started your business and now that you're established you want the logo speak about your success, please get it touch for redefining your logo. If you're looking for logo design in India, USA, Canada. Abhishek Studios is your answer"
                 },
                 {
                 icon:"1",
                 header:"Attractive Brochure Design Company",
                 paragraph:"We all agree that computer has not made paper completely useless, we still use pen and paper and it does not seem to fade away. While Web Site is your online brochure you need to have an offline brochure too, for walk in clients and to distribute all around the town. Brochures and visual Aids’ are still very important to Marketing and Sales. Any Product / Service cannot have a Marketing & Sales plan without Brochures. We create stunning Brochures / Pamphlets that can capture ones attention. Please engage with us for creating Bi-fold, Tri-fold, Z-fold, C-fold, Booklets and any other corporate brochure design."
+                },
+                {
+                icon:"1",
+                header:"Web Graphics and ad Design Service",
+                paragraph:"It is possible that you already have your website and ad campaigns running. So what can we do for you in that case? We can bring your designs to the next level. Maybe you want some new images and theme customization to beautify your online presence (do you know what that is?), banners, on page graphics. Let us create what you have in mind and bring your vision into reality. Our highly skilled, and high on tea design team will create something better than you have imagined."
+                },
+                {
+                icon:"1",
+                header:"Corporate Identity Design Service",
+                paragraph:"Abhishek Graphics offers a range of creative Brand Identity Design services. We believe your Brand is the core of your Business. No matter whether you are a sole owner or a multinational business, it is a critical factor to get right in order to be successful. We offer a wide variety of corporate designs for Coffee Mug, Visiting Cards, Letter Heads, Carry Bags, Laptop Skin Calendars, Note Pads, Diary Design and much more."
+                },
+                {
+                icon:"1",
+                header:"Designing Pharmaceuticals Company",
+                paragraph:"Illustrative and informative graphics for Pharmaceutical Industry. Get your medicine a catchy graphics and an attractive tagline. In our tenure as a graphic design firm we have worked with several big and small names and designing Ads for Pharma Companies has become our speciality. We provide Visual Aid design too so that you can expressively convince your client."
                 }
             ]
     res.status(200).send(text);
         })
                         //Our Works_Screen in Services
-app.get("/services",(req,res) => {
-   
+app.get("/services",(req,res) => {  
             const services = [
                 {
                 headerCentre:"Logo Design Package",
@@ -191,8 +268,7 @@ res.status(200).send(services);
         })
 
                     //About_Screen in data
-app.get("/data",(req,res) => {
-    
+app.get("/data",(req,res) => {    
                 const data = [
                     {
                     title: "Our History",
@@ -210,8 +286,7 @@ app.get("/data",(req,res) => {
         res.status(200).send(data);
             })
                 //About_Screen-2 in content
-app.get("/content", (req,res) => {
-    
+app.get("/content", (req,res) => {   
             const content =[
                 {
                 number:"1",
@@ -230,8 +305,7 @@ app.get("/content", (req,res) => {
     res.status(200).send(content);
         })
                  //Contact_Screen in Animation 
-app.get("/animation",(req,res)=>{
-    
+app.get("/animation",(req,res)=>{   
                 const Animation = [
                     {
                     header:"Registered Office",
@@ -260,12 +334,6 @@ app.get("/animation",(req,res)=>{
 
         res.status(200).send(Animation);
             })
-
-app.post('/addproducts', (req,res) => {
-        const {id,name} = req.body;
-        console.log(id,name);
-        return res.send('Data Stored....!')
-    })
 
 app.listen(PORT, () => {
     console.log("SERVER ON:" + PORT)

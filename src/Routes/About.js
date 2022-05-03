@@ -1,6 +1,6 @@
 import '../Routes/About.css';
 import axios from 'axios';
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import Circle from '../img/Circle.png';
 import {Container, Row, Col,ProgressBar} from "react-bootstrap";
             //Components
@@ -10,15 +10,20 @@ import FooterTwo from "../Component/Common/FooterTwo";
 
 export default function About() {
     const [data,setData] = useState([]);
-
-    axios.get("http://localhost:5000/data").then
-        (response => setData(response.data)
-            )
     const [content,setContent] = useState([]);
+                useEffect(() => {
+    axios.get("http://localhost:5000/data").then
+        (response => {
+            const data = response.data;
+            setData(data)
 
-    axios.get("http://localhost:5000/content").then
-        (response => setContent(response.content)
-            )
+            axios.get("http://localhost:5000/content").then
+        (response => {
+            const content = response.data;
+            setContent(content)});
+        }); 
+    },[]);
+
 return (
             <div className="Header">
         <Header/>
@@ -32,7 +37,7 @@ return (
         <div className="Progress-Bar">
                 <Container fluid><Row>
                     <Col className="Text-Our-P">
-        {data.map(value => { 
+        {data?.map(value => { 
                 return (
                 <div className="Our-History">
                         <h2 className="Our-Bar-h2">{value.title}</h2>
@@ -75,7 +80,7 @@ return (
                     <div className="About-Centre-Three">
                 <h4 className="About-Centre-h4">How we work</h4>
                         <Container><Row>
-                    {content.map(value => {
+                    {content?.map(value => {
                         return (
     <Col className="About-Three-P"><span className="About-Number">{value.number}</span>{value.paragraph}</Col>
                                 ) } 
