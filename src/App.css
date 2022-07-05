@@ -115,6 +115,29 @@ button.Button-Two.btn.btn-light {
   color: white;
   background-color: #272727;
 }
+.Services {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.Services:before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background: black;
+  left: 0;
+  top: 50%;
+  width: calc(43% - 16px);
+}
+.Services:after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background: black;
+  right: 0;
+  top: 50%;
+  width: calc(43% - 16px);
+}
 
 @media screen and (max-width :780px) {
   .Text-HeadLine {

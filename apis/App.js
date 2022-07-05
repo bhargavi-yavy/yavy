@@ -3,11 +3,10 @@ const mysql = require('mysql');
 const bodyParserv = require('body-parser');
 const query = require ('query');
 const cors = require('cors');
-
+    
 const app=express();
 
 app.use(cors());
-
 app.use (bodyParserv.json());
 
     const PORT= 5000
@@ -66,7 +65,7 @@ form=(firstname,lastname,companyname,email,contactno,servicetype) => {
                 else {
                     return resolve(result);
                 }
-            })
+            });
         
           });
         }
@@ -337,4 +336,4 @@ app.get("/animation",(req,res)=>{
 
 app.listen(PORT, () => {
     console.log("SERVER ON:" + PORT)
-  })
+  });  

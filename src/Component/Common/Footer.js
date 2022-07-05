@@ -122,19 +122,15 @@ export default function Footer() {
             <Form.Label>Contact No: <span className="Red">*</span></Form.Label>
                         <InputGroup className="mb-3">
                   <SplitButton variant="outline-secondary" title="+91">
-                        {/*<Dropdown.Item href="#">+1</Dropdown.Item>
-                        <Dropdown.Item href="#">+2</Dropdown.Item>
-                        <Dropdown.Item href="#">+3</Dropdown.Item>
-                        <Dropdown.Item href="#">+4</Dropdown.Item> */}
                   </SplitButton>
             <FormControl aria-label="Text input with dropdown button"  onChange={(e)=>{setContactno(e.target.value);}}/>
                   </InputGroup>
                         </> 
             <Col md>
                   <Form.Label>Service Type: <span className="Red">*</span></Form.Label>
-                  <Form.Select aria-label="Floating label select example">
+                  <Form.Select aria-label="Floating label select example"  onChange={(e)=>{setServicetype(e.target.value);}}>
             <option>--Select--</option>
-            <option value="1" onChange={(e)=>{setServicetype(e.target.value);}}>Inquiry</option>
+            <option value="Inquiry">Inquiry</option>
                   </Form.Select></Col>
             <Form>
                   <Form.Group className="mb-3">
