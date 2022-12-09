@@ -1,0 +1,42 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+.Container-One {
+    background-image: url("../../img/bg.png");
+}
+.Row-Style {
+    padding-top: 3%;
+}
+.Row-Style-h2{
+    color: #259ba7;
+    letter-spacing: -0.017em;
+    font-size: x-large;
+    margin-top: 3%;
+}
+.Row-Style-Strong{
+    color: black;
+}
+.Row-Style-Span {
+    color: #259ba7;
+}
+.Row-Style-P {
+    text-align: justify;
+    font-size: medium;
+}
+.Graphics {
+    margin-left: 20%;
+}
+
+@media screen and (max-width: 780px) {
+    .Row-Style {
+        width: 175%;
+        padding-left: 9%;
+        font-weight: bold;
+    }
+    .Row-Style-h2 {
+        color:#259ba7;
+        font-size: x-large;
+        font-weight: bold;
+    }
+}

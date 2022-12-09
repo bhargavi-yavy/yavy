@@ -1,0 +1,42 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.Success-h1 {
+    text-align: center;
+    color: rgb(58, 240, 58);
+    margin-top: 2%;
+    font-weight: bold;
+}
+.Box-Card {
+    margin-left: 35%;
+    margin-top: 5%;
+}
+img.card-img-top {
+    width: 25%;
+    margin-left: 35%;
+    margin-top: 20px;
+}
+.Card-One {
+    background-color: rgb(58, 240, 58);
+    margin-top: 5px;
+    font-weight: bold;
+}
+.card-title.h5 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.Card-Text {
+    text-align: center;
+    font-size: small;
+    color: white;
+}
+button.Success-Button.btn.btn-primary {
+    margin-left: 9%;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+}

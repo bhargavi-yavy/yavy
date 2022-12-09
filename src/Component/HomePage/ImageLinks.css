@@ -1,0 +1,25 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.Img-Link, .Img-Link-P {
+    padding: 3% 3%;
+    background-image: url("../../img/bg.png");
+    color: #848484;
+    text-align: justify;
+}
+button.btn.btn-info {
+    color: white;
+}
+img.x-img.x-img-none.lazyloaded, img{
+    width: 341px;
+}
+button.Button-ImageLinks.btn.btn-info {
+    width: 342px;
+}
+
+@media screen and (max-width:780px) {
+.Img-Link {
+    padding-left: 9%;
+    }
+}
